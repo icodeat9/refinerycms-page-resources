@@ -22,9 +22,9 @@
           <div class='page-resources-caption-modal <%= modal_class %>'>
             <%= text_area_tag "#{f.object_name.demodulize}[resources_attributes][#{index}][caption]",
                               f.object.caption_for_resource_index(index),
-                              :style => 'display: none',
-                              :id => "page_captions_#{index}",
-                              :class => 'page_caption' %>
+                              style: 'display: none',
+                              id: "page_captions_#{index}",
+                              class: 'page_caption' %>
             <%= raw form_actions %>
           </div>
         <% end %>
@@ -36,9 +36,9 @@
         <div class='page-resources-caption-modal <%= modal_class %>'>
           <%= text_area_tag "#{f.object_name.demodulize}[resources_attributes][#{f.object.resources.size}][caption]",
                             '',
-                            :style => 'display: none',
-                            :id => "page_captions_#{f.object.resources.size}",
-                            :class => 'page_caption' %>
+                            style: 'display: none',
+                            id: "page_captions_#{f.object.resources.size}",
+                            class: 'page_caption' %>
           <%= raw form_actions %>
         </div>
       <% end %>

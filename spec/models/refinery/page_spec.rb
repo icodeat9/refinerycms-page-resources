@@ -3,30 +3,30 @@ require 'spec_helper'
 module Refinery
   describe Page do
     it "can have resources added" do
-      page = FactoryGirl.create(:page)
+      page = FactoryBot.create(:page)
       page.resources.count.should eq(0)
 
-      page.resources << FactoryGirl.create(:resource)
+      page.resources << FactoryBot.create(:resource)
       page.resources.count.should eq(1)
     end
 
     describe "#resources_attributes=" do
       it "adds resources" do
-        page = FactoryGirl.create(:page)
-        resource = FactoryGirl.create(:resource)
+        page = FactoryBot.create(:page)
+        resource = FactoryBot.create(:resource)
 
         page.resources.count.should == 0
-        page.update_attributes({:resources_attributes => {"0" => {"id" => resource.id}}})
+        page.update_attributes({resources_attributes: {"0" => {"id" => resource.id}}})
 
         page.resources.count.should == 1
       end
 
       it "deletes specific resources" do
-        page = FactoryGirl.create(:page)
-        resources = [FactoryGirl.create(:resource), FactoryGirl.create(:resource)]
+        page = FactoryBot.create(:page)
+        resources = [FactoryBot.create(:resource), FactoryBot.create(:resource)]
         page.resources = resources
 
-        page.update_attributes(:resources_attributes => {
+        page.update_attributes(resources_attributes: {
           "0" => {
             "id" => resources.first.id.to_s,
             "resource_page_id" => page.page_resources.first.id,
@@ -37,21 +37,21 @@ module Refinery
       end
 
       it "deletes all resources" do
-        page = FactoryGirl.create(:page)
-        resources = [FactoryGirl.create(:resource), FactoryGirl.create(:resource)]
+        page = FactoryBot.create(:page)
+        resources = [FactoryBot.create(:resource), FactoryBot.create(:resource)]
         page.resources = resources
 
-        page.update_attributes(:resources_attributes => {"0" => {"id"=>""}})
+        page.update_attributes(resources_attributes: {"0" => {"id"=>""}})
 
         page.resources.should be_empty
       end
 
       it "reorders resources" do
-        page = FactoryGirl.create(:page)
-        resources = [FactoryGirl.create(:resource), FactoryGirl.create(:resource)]
+        page = FactoryBot.create(:page)
+        resources = [FactoryBot.create(:resource), FactoryBot.create(:resource)]
         page.resources = resources
 
-        page.update_attributes(:resources_attributes => {
+        page.update_attributes(resources_attributes: {
           "0" => {
             "id" => resources.second.id,
             "resource_page_id" => page.page_resources.second.id,

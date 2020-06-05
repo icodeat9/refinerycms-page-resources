@@ -5,7 +5,7 @@ describe "attach page resources", type: :feature do
   let(:page_resources_tab_id) { "#custom_#{::I18n.t(:'refinery.plugins.refinery_page_resources.tab_name')}_tab"  }
 
   before(:each) do
-    FactoryGirl.create(:page)
+    FactoryBot.create(:page)
 
     visit refinery.admin_pages_path
 

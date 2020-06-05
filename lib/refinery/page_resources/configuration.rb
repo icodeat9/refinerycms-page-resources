@@ -7,11 +7,11 @@ module Refinery
     self.captions = false
     self.wysiwyg = true
     self.enable_for = [
-      { :model => 'Refinery::Page', :tab => 'Refinery::Pages::Tab' },
+      { model: 'Refinery::Page', tab: 'Refinery::Pages::Tab' },
     ]
 
     if defined?(Refinery::Blog)
-      self.enable_for << { :model => 'Refinery::Blog::Post', :tab => 'Refinery::Blog::Tab' }
+      self.enable_for << { model: 'Refinery::Blog::Post', tab: 'Refinery::Blog::Tab' }
     end
 
     config.instance_eval do

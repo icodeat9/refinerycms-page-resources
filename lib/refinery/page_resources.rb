@@ -1,5 +1,4 @@
 require 'refinerycms-core'
-require 'globalize'
 
 module Refinery
   autoload :PageResourcesGenerator, 'generators/refinery/page_resources_generator'
@@ -27,7 +26,7 @@ module Refinery
           model_class.send :has_many_page_resources
         end
 
-        Refinery::Resource.send :has_many, :page_resources, :dependent => :destroy
+        Refinery::Resource.send :has_many, :page_resources, dependent: :destroy
 
         # doesn't work without this...
         require root.join('app/decorators/controllers/refinery/admin/pages_controller_decorator.rb')

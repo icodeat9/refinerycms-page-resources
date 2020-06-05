@@ -45,5 +45,5 @@ Now when you start up your Refinery application, edit a page and there should be
    <% end %>
   </ul>
 <% end %>
-<%= render :partial => "/refinery/content_page" %>
+<%= render partial: "/refinery/content_page" %>
 ```
