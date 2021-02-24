@@ -34,7 +34,7 @@ module Refinery
 
       config.to_prepare do
         Refinery::PageResources.attach!
-        Rails.application.config.assets.precompile += %w( refinery/page-resource-picker.css)
+        Rails.application.config.assets.precompile += %w( refinery/page-resource-picker.css refinery/page-resource-picker.js)
       end
 
       config.after_initialize do
